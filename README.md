@@ -4,14 +4,14 @@
 
 | Column             | Type                | Options                   |
 |--------------------|---------------------|---------------------------|
-| nickname           | string              | null: false, unique: true |
+| nickname           | string              | null: false               |
 | email              | string              | null: false, unique: true |
-| encrypted_password | string              | null: false               |
+| encrypted_password | string              | null: false, unique: true |
 | last_name          | string              | null: false               |
 | first_name         | string              | null: false               |
 | last_name_kana     | string              | null: false               |
 | first_name_kana    | string              | null: false               |
-| birthday           | references          | null: false               |
+| birthday           | date                | null: false               |
 
 
 ### Association
@@ -23,10 +23,14 @@
 
 | Column                              | Type       | Options                        |
 |-------------------------------------|------------|--------------------------------|
-| image                               | string     | null: false                    |
-| name                                | text       | null: false                    |
+| name                                | string     | null: false                    |
 | info                                | text       | null: false                    |
-| price                               | text       | null: false                    |
+| category_id                         | integer    | null: false                    |
+| item_status_id                      | integer    | null: false                    |
+| sipping_cost_id                     | integer    | null: false                    |
+| prefecture_id                       | integer    | null: false                    |
+| sipping_date_id                     | integer    | null: false                    |
+| price                               | integer    | null: false                    |
 | user                                | references | null: false, foreign_key: true |
 
 ### Association
@@ -52,13 +56,13 @@
 
 | Column             | Type                | Options                        |
 |--------------------|---------------------|--------------------------------|
-| postcode           | string              | null: false, unique: true      |
-| prefecture         | string              | null: false, unique: true      |
+| postcode           | string              | null: false                    |
+| prefecture_id      | integer             | null: false                    |
 | city               | string              | null: false                    |
 | block              | string              | null: false                    |
-| building           | string              | null: false                    |
+| building           | string              |                                |
 | phone_number       | string              | null: false                    |
-| orders             | references          | null: false, foreign_key: true |
+| order              | references          | null: false, foreign_key: true |
 
 - belongs_to :order
 
