@@ -64,21 +64,21 @@ RSpec.describe User, type: :model do
         @user.password_confirmation = 'abcdef'
         @user.valid?
         expect(@user.errors.full_messages).to include('Password Include both letters and numbers')
-      end  
+      end
 
       it 'パスワードは半角数値のみでは登録できない' do
         @user.password = '123456'
         @user.password_confirmation = '123456'
         @user.valid?
         expect(@user.errors.full_messages).to include('Password Include both letters and numbers')
-      end  
+      end
 
       it 'パスワードは全角英数字では登録できない' do
         @user.password = '１２３dfg'
         @user.password_confirmation = '１２３dfg'
         @user.valid?
         expect(@user.errors.full_messages).to include('Password Include both letters and numbers')
-      end  
+      end
 
       it 'last_nameが空では登録できない' do
         @user.last_name = ''
