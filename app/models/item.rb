@@ -10,4 +10,5 @@ class Item < ApplicationRecord
     validates :prefecture_id
     validates :sipping_date_id
     validates :price
+  end  
 end
