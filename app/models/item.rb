@@ -7,9 +7,9 @@ class Item < ApplicationRecord
   
   belongs_to :category
   belongs_to :item_status
-  belongs_to :sipping_cost
+  belongs_to :shipping_cost
   belongs_to :prefecture_id
-  belongs_to :sipping_date_id
+  belongs_to :shipping_date_id
 
 
   with_options presence: true do
@@ -26,9 +26,9 @@ class Item < ApplicationRecord
   with_options numericality: { other_than: 1 , message: "can't be blank"} do
     validates :user_id
     validates :category_id
-    validates :sipping_cost_id
+    validates :shipping_cost_id
     validates :prefecture_id
-    validates :sipping_date_id
+    validates :shipping_date_id
   end  
 
 end
