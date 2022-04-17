@@ -11,4 +11,5 @@ class Item < ApplicationRecord
     validates :sipping_date_id
     validates :price
   end  
+  
 end
