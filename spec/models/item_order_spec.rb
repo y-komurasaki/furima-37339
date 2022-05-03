@@ -17,6 +17,13 @@ RSpec.describe ItemOrder, type: :model do
     end
 
     context '新規登録がうまくいかないとき' do
+
+      it 'tokenが空だと購入ができない' do
+        @item_order.token = nil
+        @item_order.valid?
+        expect(@item_order.errors.full_messages).to include("Token can't be blank")
+      end
+
       it 'post_codeが空では登録されない' do
         @item_order.post_code = ''
         @item_order.valid?
