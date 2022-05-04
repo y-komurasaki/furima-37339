@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :item do
-    name              { Faker::Name.initials}
+    name              { Faker::Name.initials }
     info              { Faker::Lorem.sentence }
     category_id             { Faker::Number.between(from: 1, to: 10) }
     item_status_id          { Faker::Number.between(from: 1, to: 6) }
@@ -14,5 +14,4 @@ FactoryBot.define do
       item.image.attach(io: File.open('public/images/test_image.png'), filename: 'test_image.png')
     end
   end
-
 end
