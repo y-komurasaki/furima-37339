@@ -4,6 +4,7 @@ FactoryBot.define do
     prefecture_id         { Faker::Number.between(from: 1, to: 47) }
     city                  { '東京都' }
     block                 { '1-1-1' }
+    building              { 'テックビル' }
     phone_number          { '09012345678' }
     token { 'tok_abcdefghijk00000000000000000' }
   end
