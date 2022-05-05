@@ -1,13 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Item, type: :model do
-
   before do
     @item = FactoryBot.build(:item)
   end
 
   describe '商品出品' do
-
     context '新規登録がうまくいくとき' do
       it '全ての項目が正しく入力されてあれば登録できる' do
         expect(@item).to be_valid
@@ -33,7 +31,6 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Info can't be blank")
       end
 
-
       it 'category_idで0が選択された場合は登録されない' do
         @item.category_id = '0'
         @item.valid?
@@ -41,7 +38,7 @@ RSpec.describe Item, type: :model do
       end
 
       it 'item_status_idで0が選択された場合は登録されない' do
-        @item.item_status_id  = '0'
+        @item.item_status_id = '0'
         @item.valid?
         expect(@item.errors.full_messages).to include("Item status can't be blank")
       end
@@ -59,11 +56,10 @@ RSpec.describe Item, type: :model do
       end
 
       it 'shipping_date_idで0が選択された場合は登録されない' do
-       @item.shipping_date_id = '0'
-       @item.valid?
-       expect(@item.errors.full_messages).to include("Shipping date can't be blank")
-     end
-
+        @item.shipping_date_id = '0'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Shipping date can't be blank")
+      end
 
       it 'priceが空では登録できない' do
         @item.price = ''
@@ -72,21 +68,21 @@ RSpec.describe Item, type: :model do
       end
 
       it 'priceが半角数字以外では登録できない' do
-        @item.price = "１０００"
+        @item.price = '１０００'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is not a number")
+        expect(@item.errors.full_messages).to include('Price is not a number')
       end
 
       it 'priceが300より少ないと登録できない' do
-        @item.price = "50"
+        @item.price = '50'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price must be greater than 300")
+        expect(@item.errors.full_messages).to include('Price must be greater than 300')
       end
 
       it 'priceが9999999より多いと登録できない' do
-        @item.price = "10000000"
+        @item.price = '10000000'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price must be less than 9999999")
+        expect(@item.errors.full_messages).to include('Price must be less than 9999999')
       end
 
       it 'ユーザーが紐付いていなければ投稿できない' do
@@ -94,8 +90,6 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include('User must exist')
       end
-  
-  
     end
   end
 end
