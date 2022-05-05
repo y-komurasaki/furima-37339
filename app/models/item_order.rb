@@ -10,7 +10,7 @@ class ItemOrder
     validates :prefecture_id
   end
 
-  validates :phone_number, format: { with: /\A\d{11}\z/ }
+  validates :phone_number, format: { with: /\A\d{10}$|^\d{11}\z/ }
   validates :post_code, length: { is: 8 }
   validates :post_code, format: { with: /\A\d{3}-\d{4}\z/ }
 
