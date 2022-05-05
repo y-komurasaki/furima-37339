@@ -3,7 +3,7 @@ class ItemOrder
   attr_accessor :token, :post_code, :prefecture_id, :city, :block, :building, :phone_number, :user_id, :item_id
 
   with_options presence: true do
-    validates :token, :city, :block, :phone_number, :post_code
+    validates :token, :city, :block, :phone_number, :post_code, :user_id, :item_id
   end
 
   with_options numericality: { other_than: 0, message: "can't be blank" } do
